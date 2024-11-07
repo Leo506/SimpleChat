@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net8.0-android</TargetFramework>
+        <SupportedOSPlatformVersion>21</SupportedOSPlatformVersion>
+        <OutputType>Exe</OutputType>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <ApplicationId>com.companyname.SimpleChat</ApplicationId>
+        <ApplicationVersion>1</ApplicationVersion>
+        <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+    </PropertyGroup>
+    <ItemGroup>
+      <PackageReference Include="MvvmCross.DroidX.Material" Version="9.2.0" />
+      <PackageReference Include="MvvmCross.DroidX.RecyclerView" Version="9.2.0" />
+      <PackageReference Include="Xamarin.Google.Android.Material" Version="1.10.0.4" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\SimpleChat.Core\SimpleChat.Core\SimpleChat.Core.csproj" />
+    </ItemGroup>
+</Project>
