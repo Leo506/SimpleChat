@@ -1,5 +1,6 @@
 ﻿using MvvmCross.Navigation;
 using MvvmCross.ViewModels;
+using SimpleChat.Core.ViewModels.Chats;
 
 namespace SimpleChat.Core;
 
@@ -8,6 +9,6 @@ public class AppStart(IMvxApplication application, IMvxNavigationService navigat
 {
     protected override Task NavigateToFirstViewModel(object? hint = null)
     {
-        return Task.CompletedTask;
+        return NavigationService.Navigate<ChatsViewModel>();
     }
 }
