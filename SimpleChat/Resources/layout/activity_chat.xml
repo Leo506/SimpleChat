@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?android:attr/colorBackground">
+
+    <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/chats_app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true">
+        <com.google.android.material.appbar.MaterialToolbar
+                android:layout_width="match_parent"
+                android:layout_height="?android:attr/actionBarSize"
+                android:id="@+id/toolbar"/>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <MvvmCross.DroidX.RecyclerView.MvxRecyclerView
+            android:id="@+id/messages"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/md_theme_indent_2x"
+            android:layout_marginBottom="@dimen/md_theme_indent_2x"
+            android:paddingHorizontal="@dimen/md_theme_indent_1x"
+            android:layout_below="@id/chats_app_bar"
+            android:layout_above="@id/send_message"
+            app:MvxTemplateSelector="SimpleChat.UI.Pages.ChatPage.MessageTemplateSelector, SimpleChat"
+            app:MvxBind="ItemsSource Messages"/>
+    
+    <LinearLayout
+            android:id="@+id/send_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginHorizontal="@dimen/md_theme_indent_1x"
+            android:paddingHorizontal="@dimen/md_theme_indent_1x"
+            android:background="@drawable/send_message_block_background"
+            android:orientation="horizontal">
+
+        <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="@dimen/md_theme_indent_1x"
+                android:inputType="textNoSuggestions"
+                android:ellipsize="end"
+                android:hint="Your message"
+                android:textColorHint="?attr/colorOnSurfaceVariant"
+                android:textAppearance="?attr/textAppearanceBody1"
+                android:id="@+id/searchInput"
+                app:MvxBind="Text CurrentMessage"/>
+        
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/send_24"
+            app:MvxBind="Visible SendButtonVisible; Click SendCommand"/>
+        
+    </LinearLayout>
+
+    
+</RelativeLayout>

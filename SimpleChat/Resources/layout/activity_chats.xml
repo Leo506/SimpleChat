@@ -6,19 +6,37 @@
     android:layout_height="match_parent">
 
     <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/chats_app_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true">
         <com.google.android.material.appbar.MaterialToolbar
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:id="@+id/toolbar"
-                android:title="Chats"/>
+                android:layout_height="?android:attr/actionBarSize"
+                android:id="@+id/toolbar"/>
     </com.google.android.material.appbar.AppBarLayout>
     
     <MvvmCross.DroidX.RecyclerView.MvxRecyclerView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/md_theme_indent_2x"
+            android:layout_marginBottom="@dimen/md_theme_indent_2x"
+            android:paddingHorizontal="@dimen/md_theme_indent_1x"
+            android:layout_below="@id/chats_app_bar"
             app:MvxItemTemplate="@layout/view_chat"
-            app:MvxBind="ItemsSource Chats"/>
+            app:MvxBind="ItemsSource Chats; ItemClick ChatClickCommand"/>
+    
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/create_chat_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="@dimen/md_theme_indent_2x"
+            android:src="@drawable/add_24"/>
+
+    <androidx.fragment.app.FragmentContainerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/fragment_frame" />
 </RelativeLayout>

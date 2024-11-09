@@ -1,19 +1,33 @@
 ﻿using _Microsoft.Android.Resource.Designer;
 using Android.Content.PM;
-using Android.OS;
+using Google.Android.Material.FloatingActionButton;
 using MvvmCross.Platforms.Android.Presenters.Attributes;
 using MvvmCross.Platforms.Android.Views;
 using SimpleChat.Core.ViewModels.Chats;
+using SimpleChat.UI.Extensions;
+using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 
 namespace SimpleChat.UI;
 
 [MvxActivityPresentation]
-[Activity(ScreenOrientation = ScreenOrientation.Portrait, LaunchMode = LaunchMode.SingleTask, Theme = "@style/AppTheme")]
-public class ChatsActivity : MvxActivity<ChatsViewModel>
+[Activity(ScreenOrientation = ScreenOrientation.Portrait, LaunchMode = LaunchMode.SingleTask)]
+public class ChatsActivity : AppActivity<ChatsViewModel>
 {
+    protected override int LayoutId => ResourceConstant.Layout.activity_chats;
+
     protected override void OnCreate(Bundle? savedInstanceState)
     {
         base.OnCreate(savedInstanceState);
-        SetContentView(ResourceConstant.Layout.activity_chats);
+        FindViewById<FloatingActionButton>(ResourceConstant.Id.create_chat_button)
+            .SetOnClickListener(ShowCreateChatDialog);
+    }
+
+    private void ShowCreateChatDialog() => CreateChatDialog.Show(this, CreateChat);
+
+    private async void CreateChat(string chatName) => await ViewModel.CreateChat(chatName).ConfigureAwait(false);
+
+    protected override void SetupToolbar(Toolbar toolbar)
+    {
+        toolbar.Title = "Chats";
     }
 }

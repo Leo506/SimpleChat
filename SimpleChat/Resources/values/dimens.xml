@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <dimen name="md_theme_indent_1x_half">4dp</dimen>
+    <dimen name="md_theme_indent_1x">8dp</dimen>
+    <dimen name="md_theme_indent_1_5x">12dp</dimen>
+    <dimen name="md_theme_indent_2x">16dp</dimen>
+    <dimen name="md_theme_indent_2_5x">20dp</dimen>
+    <dimen name="md_theme_indent_3x">24dp</dimen>
+    <dimen name="md_theme_indent_3_5x">28dp</dimen>
+    <dimen name="md_theme_indent_4x">32dp</dimen>
+</resources>
