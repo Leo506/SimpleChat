@@ -1,12 +1,11 @@
 ﻿using Microsoft.Extensions.Logging;
-using MvvmCross.Core;
 using MvvmCross.IoC;
 using MvvmCross.Platforms.Android.Core;
 using SimpleChat.Android.UI;
 using SimpleChat.Android.UI.Pages.ChatPage;
-using SimpleChat.Android.Core;
-using SimpleChat.Android.Core.ViewModels.Chat;
-using SimpleChat.Android.Core.ViewModels.Chats;
+using SimpleChat.Core;
+using SimpleChat.Core.ViewModels.Chat;
+using SimpleChat.Core.ViewModels.Chats;
 
 namespace SimpleChat.Android;
 

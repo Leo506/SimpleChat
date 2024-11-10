@@ -2,8 +2,8 @@
 using Android.Content.PM;
 using MvvmCross.DroidX.RecyclerView;
 using MvvmCross.Platforms.Android.Presenters.Attributes;
-using SimpleChat.Android.Core.ViewModels.Chat;
 using SimpleChat.Android.UI.Extensions;
+using SimpleChat.Core.ViewModels.Chat;
 using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 
 namespace SimpleChat.Android.UI.Pages.ChatPage;
@@ -19,7 +19,7 @@ public class ChatActivity : AppActivity<ChatViewModel>
     protected override void OnViewModelSet()
     {
         base.OnViewModelSet();
-        ViewModel.ScrollToNewMessage = () =>
+        ViewModel.ScrollToLastMessage = () =>
         {
             MessagesRecyclerView.GetLayoutManager()?.StartSmoothScroll(new SmoothScroller(this)
             {

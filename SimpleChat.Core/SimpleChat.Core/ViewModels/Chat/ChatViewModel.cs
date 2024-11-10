@@ -1,10 +1,11 @@
 ﻿using MvvmCross.Commands;
 using MvvmCross.ViewModels;
 using SimpleChat.Core.Domain;
+using SimpleChat.Core.Services.Messages;
 
 namespace SimpleChat.Core.ViewModels.Chat;
 
-public class ChatViewModel : MvxViewModel<Domain.Chat>
+public class ChatViewModel(IMessagesService messagesService) : MvxViewModel<Domain.Chat>
 {
     private MvxObservableCollection<Message> _messages = [];
     private string _currentMessage = string.Empty;
@@ -33,33 +34,30 @@ public class ChatViewModel : MvxViewModel<Domain.Chat>
 
     public IMvxCommand SendCommand => _sendCommand ??= new MvxAsyncCommand(Send);
 
-    public Action ScrollToNewMessage { get; set; } = default!;
+    public Action ScrollToLastMessage { get; set; } = default!;
 
-    public override Task Initialize()
+    public override Task Initialize() => Task.Run(LoadMessages);
+
+    private async Task LoadMessages()
     {
-        Messages =
-        [
-            new(default, default, "Mark", DateTime.Now, "Hello"),
-            new(default, default, "You", DateTime.Now, "Hello"),
-            new(default, default, "Mark", DateTime.Now, "How r u?"),
-            new(default, default, "You", DateTime.Now, "Good"),
-            new(default, default, "Mark", DateTime.Now, "Hellobgiiuigiibiubb guggygu gou gygugyugogy gyuguguyguguyuoougyugyu gu u yu guo gu gouyguygyug u goygyg o gogogyog l"),
-            new(default, default, "You", DateTime.Now, "Hello"),
-        ];
-        
-        return base.Initialize();
+        try
+        {
+            var messages = await messagesService.GetAll(Chat.Id);
+            Messages = new(messages);
+        }
+        catch (Exception)
+        {
+            // ignore
+        }
     }
     
-    private Task Send()
+    private async Task Send()
     {
-        Messages.AddRange(
-        [
-            new Message(default, default, "You", DateTime.Now, CurrentMessage),
-            new Message(default, default, "Mark", DateTime.Now, "geegegegeg")
-        ]);
+        await messagesService.SendMessage(Chat.Id, CurrentMessage).ConfigureAwait(false);
+        var newMessages = await messagesService.GetNewMessages(Chat.Id, Messages.Select(x => x.Id).ToList());
+        Messages.AddRange(newMessages);
         CurrentMessage = string.Empty;
-        ScrollToNewMessage();
-        return Task.CompletedTask;
+        ScrollToLastMessage();
     }
 
     public override void Prepare(Domain.Chat parameter) => Chat = parameter;

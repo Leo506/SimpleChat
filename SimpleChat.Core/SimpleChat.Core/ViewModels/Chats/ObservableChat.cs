@@ -10,5 +10,5 @@ public class ObservableChat(Domain.Chat chat, Message? lastMessage)
 
     public string Subtitle => lastMessage is null 
         ? string.Empty 
-        : $"{lastMessage?.SendTime:hh:mm} {lastMessage?.Sender}: {lastMessage?.Text}";
+        : $"{lastMessage?.SendTime:hh:mm} {lastMessage?.SenderName}: {lastMessage?.Text}";
 }

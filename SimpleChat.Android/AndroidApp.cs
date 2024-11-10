@@ -1,7 +1,7 @@
 ﻿using Android.Runtime;
 using MvvmCross.Platforms.Android.Views;
 using MvvmCross.ViewModels;
-using SimpleChat.Android.Core;
+using SimpleChat.Core;
 
 namespace SimpleChat.Android;
 

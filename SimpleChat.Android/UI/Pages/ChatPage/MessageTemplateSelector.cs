@@ -1,6 +1,7 @@
 ﻿using _Microsoft.Android.Resource.Designer;
 using MvvmCross.DroidX.RecyclerView.ItemTemplates;
-using SimpleChat.Android.Core.Domain;
+using SimpleChat.Core;
+using SimpleChat.Core.Domain;
 
 namespace SimpleChat.Android.UI.Pages.ChatPage;
 
@@ -9,7 +10,7 @@ public class MessageTemplateSelector : IMvxTemplateSelector
     public int GetItemViewType(object forItemObject)
     {
         var message = (Message)forItemObject;
-        return message.Sender == "You"
+        return message.SenderId == Constants.YourId
             ? 0
             : 1;
     }

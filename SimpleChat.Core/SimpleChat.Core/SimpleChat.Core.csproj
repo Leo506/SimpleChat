@@ -7,7 +7,23 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="Microsoft.Maui.Essentials" Version="8.0.93" />
       <PackageReference Include="MvvmCross" Version="9.2.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Update="Resources\Translates.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Translates.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Resources\Translates.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Translates.resx</DependentUpon>
+      </Compile>
     </ItemGroup>
 
 </Project>

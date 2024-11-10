@@ -1,3 +1,10 @@
-﻿namespace SimpleChat.Core.Domain;
+﻿using SimpleChat.Core.Resources;
 
-public record Message(Guid Id, Guid ChatId, string Sender, DateTime SendTime, string Text);
+namespace SimpleChat.Core.Domain;
+
+public record Message(Guid Id, Guid ChatId, Guid SenderId, DateTime SendTime, string Text)
+{
+    public string SenderName => SenderId == Constants.BotId 
+        ? Translates.Bot 
+        : Translates.You;
+}

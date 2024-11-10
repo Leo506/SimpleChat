@@ -2,9 +2,8 @@
 using Android.Content.PM;
 using Google.Android.Material.FloatingActionButton;
 using MvvmCross.Platforms.Android.Presenters.Attributes;
-using MvvmCross.Platforms.Android.Views;
-using SimpleChat.Android.Core.ViewModels.Chats;
 using SimpleChat.Android.UI.Extensions;
+using SimpleChat.Core.ViewModels.Chats;
 using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 
 namespace SimpleChat.Android.UI;

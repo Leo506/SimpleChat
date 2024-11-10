@@ -2,12 +2,17 @@
 using MvvmCross.Navigation;
 using MvvmCross.ViewModels;
 using SimpleChat.Core.Domain;
+using SimpleChat.Core.Services.Chats;
+using SimpleChat.Core.Services.Messages;
 using SimpleChat.Core.ViewModels.Chat;
 using ChatModel = SimpleChat.Core.Domain.Chat;
 
 namespace SimpleChat.Core.ViewModels.Chats;
 
-public class ChatsViewModel(IMvxNavigationService navigationService) : MvxViewModel
+public class ChatsViewModel(
+    IMvxNavigationService navigationService,
+    IChatsService chatsService,
+    IMessagesService messagesService) : MvxViewModel
 {
     private MvxObservableCollection<ObservableChat> _chats = [];
     private IMvxCommand<ObservableChat>? _chatClickCommand;
@@ -20,19 +25,26 @@ public class ChatsViewModel(IMvxNavigationService navigationService) : MvxViewMo
 
     public IMvxCommand<ObservableChat> ChatClickCommand => _chatClickCommand ??= new MvxAsyncCommand<ObservableChat>(OpenChat);
 
-    public override Task Initialize()
+    public override Task Initialize() => Task.Run(LoadChats);
+
+    private async Task LoadChats()
     {
-        Chats =
-        [
-            new(new ChatModel(Guid.NewGuid(), "Chat 1"), new Message(default, default, "Mark", DateTime.Now, "Hello")),
-            new(new ChatModel(Guid.NewGuid(), "Chat 2"), default),
-            new(new ChatModel(Guid.NewGuid(), "Chat 3"), default),
-            new(new ChatModel(Guid.NewGuid(), "Chat 4"), default),
-            new(new ChatModel(Guid.NewGuid(), "Chat 5"), default),
-            new(new ChatModel(Guid.NewGuid(), "Chat 6"), default),
-            new(new ChatModel(Guid.NewGuid(), "Chat 7"), default)
-        ];
-        return Task.CompletedTask;
+        try
+        {
+            var chats = await chatsService.GetAll().ConfigureAwait(false);
+            List<ObservableChat> observableChats = [];
+            foreach (var chat in chats)
+            {
+                var lastMessage = await messagesService.GetLastMessageForChat(chat.Id).ConfigureAwait(false);
+                observableChats.Add(new(chat, lastMessage));
+            }
+
+            Chats = new(observableChats);
+        }
+        catch (Exception)
+        {
+            // ignore
+        }
     }
     
     private Task OpenChat(ObservableChat? chat)
@@ -42,9 +54,9 @@ public class ChatsViewModel(IMvxNavigationService navigationService) : MvxViewMo
         return navigationService.Navigate<ChatViewModel, ChatModel>(chat.Chat);
     }
 
-    public Task CreateChat(string chatName)
+    public async Task CreateChat(string chatName)
     {
-        Chats.Add(new(new ChatModel(Guid.NewGuid(), chatName), default));
-        return Task.CompletedTask;
+        var newChat = await chatsService.CreateNew(chatName).ConfigureAwait(false);
+        Chats.Add(new ObservableChat(newChat, default));
     }
 }
