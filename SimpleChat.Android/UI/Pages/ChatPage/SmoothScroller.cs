@@ -2,7 +2,7 @@
 using Android.Util;
 using AndroidX.RecyclerView.Widget;
 
-namespace SimpleChat.UI.Pages.ChatPage;
+namespace SimpleChat.Android.UI.Pages.ChatPage;
 
 public class SmoothScroller(Context? context) : LinearSmoothScroller(context)
 {

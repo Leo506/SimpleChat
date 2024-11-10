@@ -1,6 +1,6 @@
 ﻿using Android.Views;
 
-namespace SimpleChat.UI.Extensions;
+namespace SimpleChat.Android.UI.Extensions;
 
 public static class ViewExtensions
 {

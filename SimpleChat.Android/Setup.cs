@@ -2,13 +2,13 @@
 using MvvmCross.Core;
 using MvvmCross.IoC;
 using MvvmCross.Platforms.Android.Core;
-using SimpleChat.Core;
-using SimpleChat.Core.ViewModels.Chat;
-using SimpleChat.Core.ViewModels.Chats;
-using SimpleChat.UI;
-using SimpleChat.UI.Pages.ChatPage;
+using SimpleChat.Android.UI;
+using SimpleChat.Android.UI.Pages.ChatPage;
+using SimpleChat.Android.Core;
+using SimpleChat.Android.Core.ViewModels.Chat;
+using SimpleChat.Android.Core.ViewModels.Chats;
 
-namespace SimpleChat;
+namespace SimpleChat.Android;
 
 public class Setup : MvxAndroidSetup<App>
 {

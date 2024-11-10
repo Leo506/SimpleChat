@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleChat", "SimpleChat\SimpleChat.csproj", "{C1F74C4B-181A-4CC1-86B1-0D3DA4E27FBA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleChat.Android", "SimpleChat.Android\SimpleChat.Android.csproj", "{C1F74C4B-181A-4CC1-86B1-0D3DA4E27FBA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleChat.Core", "SimpleChat.Core\SimpleChat.Core\SimpleChat.Core.csproj", "{1145DF7F-8C02-4AF8-9F0A-7BB64EF6823A}"
 EndProject

@@ -2,11 +2,11 @@
 using Android.Content.PM;
 using MvvmCross.DroidX.RecyclerView;
 using MvvmCross.Platforms.Android.Presenters.Attributes;
-using SimpleChat.Core.ViewModels.Chat;
-using SimpleChat.UI.Extensions;
+using SimpleChat.Android.Core.ViewModels.Chat;
+using SimpleChat.Android.UI.Extensions;
 using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 
-namespace SimpleChat.UI.Pages.ChatPage;
+namespace SimpleChat.Android.UI.Pages.ChatPage;
 
 [MvxActivityPresentation]
 [Activity(ScreenOrientation = ScreenOrientation.Portrait)]

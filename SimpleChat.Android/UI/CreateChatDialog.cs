@@ -6,7 +6,7 @@ using AndroidX.Core.Content;
 using Google.Android.Material.Dialog;
 using AlertDialog = AndroidX.AppCompat.App.AlertDialog;
 
-namespace SimpleChat.UI;
+namespace SimpleChat.Android.UI;
 
 public static class CreateChatDialog
 {

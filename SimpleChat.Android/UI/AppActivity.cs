@@ -6,7 +6,7 @@ using MvvmCross.Platforms.Android.Views;
 using MvvmCross.ViewModels;
 using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 
-namespace SimpleChat.UI;
+namespace SimpleChat.Android.UI;
 
 [MvxActivityPresentation]
 public abstract class AppActivity<TViewModel> : MvxActivity<TViewModel> where TViewModel : class, IMvxViewModel

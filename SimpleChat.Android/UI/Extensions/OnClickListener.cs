@@ -1,6 +1,6 @@
 ﻿using Android.Views;
 
-namespace SimpleChat.UI.Extensions;
+namespace SimpleChat.Android.UI.Extensions;
 
 public class OnClickListener(Action onClick) : Java.Lang.Object, View.IOnClickListener
 {

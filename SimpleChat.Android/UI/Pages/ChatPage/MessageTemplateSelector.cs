@@ -1,8 +1,8 @@
 ﻿using _Microsoft.Android.Resource.Designer;
 using MvvmCross.DroidX.RecyclerView.ItemTemplates;
-using SimpleChat.Core.Domain;
+using SimpleChat.Android.Core.Domain;
 
-namespace SimpleChat.UI.Pages.ChatPage;
+namespace SimpleChat.Android.UI.Pages.ChatPage;
 
 public class MessageTemplateSelector : IMvxTemplateSelector
 {

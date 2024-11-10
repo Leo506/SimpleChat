@@ -3,11 +3,11 @@ using Android.Content.PM;
 using Google.Android.Material.FloatingActionButton;
 using MvvmCross.Platforms.Android.Presenters.Attributes;
 using MvvmCross.Platforms.Android.Views;
-using SimpleChat.Core.ViewModels.Chats;
-using SimpleChat.UI.Extensions;
+using SimpleChat.Android.Core.ViewModels.Chats;
+using SimpleChat.Android.UI.Extensions;
 using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 
-namespace SimpleChat.UI;
+namespace SimpleChat.Android.UI;
 
 [MvxActivityPresentation]
 [Activity(ScreenOrientation = ScreenOrientation.Portrait, LaunchMode = LaunchMode.SingleTask)]

@@ -1,5 +1,5 @@
 ﻿using Toolbar =  AndroidX.AppCompat.Widget.Toolbar;
-namespace SimpleChat.UI.Extensions;
+namespace SimpleChat.Android.UI.Extensions;
 
 public static class ToolbarExtensions
 {
