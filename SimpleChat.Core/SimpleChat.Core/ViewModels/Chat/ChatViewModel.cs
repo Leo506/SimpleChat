@@ -1,6 +1,7 @@
 ﻿using MvvmCross.Commands;
 using MvvmCross.ViewModels;
 using SimpleChat.Core.Domain;
+using SimpleChat.Core.Resources;
 using SimpleChat.Core.Services.Messages;
 
 namespace SimpleChat.Core.ViewModels.Chat;
@@ -36,6 +37,8 @@ public class ChatViewModel(IMessagesService messagesService) : MvxViewModel<Doma
 
     public Action ScrollToLastMessage { get; set; } = default!;
 
+    public string MessageHint => Translates.YourMessage;
+
     public override Task Initialize() => Task.Run(LoadMessages);
 
     private async Task LoadMessages()
@@ -55,7 +58,7 @@ public class ChatViewModel(IMessagesService messagesService) : MvxViewModel<Doma
     {
         await messagesService.SendMessage(Chat.Id, CurrentMessage).ConfigureAwait(false);
         var newMessages = await messagesService.GetNewMessages(Chat.Id, Messages.Select(x => x.Id).ToList());
-        Messages.AddRange(newMessages);
+        Messages.InsertRange(0, newMessages);
         CurrentMessage = string.Empty;
         ScrollToLastMessage();
     }

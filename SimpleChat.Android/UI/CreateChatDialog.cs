@@ -4,6 +4,7 @@ using Android.Text;
 using Android.Views;
 using AndroidX.Core.Content;
 using Google.Android.Material.Dialog;
+using SimpleChat.Core.Resources;
 using AlertDialog = AndroidX.AppCompat.App.AlertDialog;
 
 namespace SimpleChat.Android.UI;
@@ -27,7 +28,7 @@ public static class CreateChatDialog
         {
             LayoutParameters = GetEditTextLayoutParams(context),
             BackgroundTintList = ContextCompat.GetColorStateList(context, ResourceConstant.Color.md_theme_surfaceContainerLow),
-            Hint = "Chat name",
+            Hint = Translates.ChatName,
             Focusable = true,
             FocusableInTouchMode = true,
         };
@@ -51,9 +52,9 @@ public static class CreateChatDialog
     private static AlertDialog CreateAlertDialog(Context context, EditText editText, Action<string> onOkClick)
     {
         var builder = new MaterialAlertDialogBuilder(context)
-            .SetTitle("New chat")!
-            .SetPositiveButton("Ok", OkButtonOnClick)
-            .SetNeutralButton("Cancel", CancelDialog);
+            .SetTitle(Translates.NewChat)!
+            .SetPositiveButton(Translates.Add, OkButtonOnClick)
+            .SetNeutralButton(Translates.Cancel, CancelDialog);
 
         var container = new FrameLayout(context);
         container.AddView(editText);

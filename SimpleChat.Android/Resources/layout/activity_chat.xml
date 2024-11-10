@@ -46,11 +46,10 @@
                 android:padding="@dimen/md_theme_indent_1x"
                 android:inputType="textNoSuggestions"
                 android:ellipsize="end"
-                android:hint="Your message"
                 android:textColorHint="?attr/colorOnSurfaceVariant"
                 android:textAppearance="?attr/textAppearanceBody1"
                 android:id="@+id/searchInput"
-                app:MvxBind="Text CurrentMessage"/>
+                app:MvxBind="Text CurrentMessage; Hint MessageHint"/>
         
         <ImageButton
             android:layout_width="wrap_content"

@@ -3,10 +3,11 @@ using Android.Content.PM;
 using Google.Android.Material.FloatingActionButton;
 using MvvmCross.Platforms.Android.Presenters.Attributes;
 using SimpleChat.Android.UI.Extensions;
+using SimpleChat.Core.Resources;
 using SimpleChat.Core.ViewModels.Chats;
 using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 
-namespace SimpleChat.Android.UI;
+namespace SimpleChat.Android.UI.Pages.Chats;
 
 [MvxActivityPresentation]
 [Activity(ScreenOrientation = ScreenOrientation.Portrait, LaunchMode = LaunchMode.SingleTask)]
@@ -27,6 +28,6 @@ public class ChatsActivity : AppActivity<ChatsViewModel>
 
     protected override void SetupToolbar(Toolbar toolbar)
     {
-        toolbar.Title = "Chats";
+        toolbar.Title = Translates.Chats;
     }
 }

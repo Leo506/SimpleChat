@@ -21,7 +21,7 @@ namespace SimpleChat.Core.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Translates {
+    public class Translates {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -35,7 +35,7 @@ namespace SimpleChat.Core.Resources {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SimpleChat.Core.Resources.Translates", typeof(Translates).Assembly);
@@ -50,7 +50,7 @@ namespace SimpleChat.Core.Resources {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -62,7 +62,7 @@ namespace SimpleChat.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Add.
         /// </summary>
-        internal static string Add {
+        public static string Add {
             get {
                 return ResourceManager.GetString("Add", resourceCulture);
             }
@@ -71,7 +71,7 @@ namespace SimpleChat.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Bot.
         /// </summary>
-        internal static string Bot {
+        public static string Bot {
             get {
                 return ResourceManager.GetString("Bot", resourceCulture);
             }
@@ -80,7 +80,7 @@ namespace SimpleChat.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
-        internal static string Cancel {
+        public static string Cancel {
             get {
                 return ResourceManager.GetString("Cancel", resourceCulture);
             }
@@ -89,7 +89,7 @@ namespace SimpleChat.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Chat name.
         /// </summary>
-        internal static string ChatName {
+        public static string ChatName {
             get {
                 return ResourceManager.GetString("ChatName", resourceCulture);
             }
@@ -98,7 +98,7 @@ namespace SimpleChat.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Chats.
         /// </summary>
-        internal static string Chats {
+        public static string Chats {
             get {
                 return ResourceManager.GetString("Chats", resourceCulture);
             }
@@ -107,7 +107,7 @@ namespace SimpleChat.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Hello.
         /// </summary>
-        internal static string Hello {
+        public static string Hello {
             get {
                 return ResourceManager.GetString("Hello", resourceCulture);
             }
@@ -116,7 +116,7 @@ namespace SimpleChat.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to How are you?.
         /// </summary>
-        internal static string HowAreYou {
+        public static string HowAreYou {
             get {
                 return ResourceManager.GetString("HowAreYou", resourceCulture);
             }
@@ -125,7 +125,7 @@ namespace SimpleChat.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to How can I help you?.
         /// </summary>
-        internal static string HowCanIHelpYou {
+        public static string HowCanIHelpYou {
             get {
                 return ResourceManager.GetString("HowCanIHelpYou", resourceCulture);
             }
@@ -134,7 +134,7 @@ namespace SimpleChat.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to New chat.
         /// </summary>
-        internal static string NewChat {
+        public static string NewChat {
             get {
                 return ResourceManager.GetString("NewChat", resourceCulture);
             }
@@ -143,7 +143,7 @@ namespace SimpleChat.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to You.
         /// </summary>
-        internal static string You {
+        public static string You {
             get {
                 return ResourceManager.GetString("You", resourceCulture);
             }
@@ -152,7 +152,7 @@ namespace SimpleChat.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Your message.
         /// </summary>
-        internal static string YourMessage {
+        public static string YourMessage {
             get {
                 return ResourceManager.GetString("YourMessage", resourceCulture);
             }

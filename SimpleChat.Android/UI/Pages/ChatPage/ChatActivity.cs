@@ -1,5 +1,7 @@
 ﻿using _Microsoft.Android.Resource.Designer;
 using Android.Content.PM;
+using AndroidX.RecyclerView.Widget;
+using Microsoft.Maui.ApplicationModel;
 using MvvmCross.DroidX.RecyclerView;
 using MvvmCross.Platforms.Android.Presenters.Attributes;
 using SimpleChat.Android.UI.Extensions;
@@ -16,6 +18,16 @@ public class ChatActivity : AppActivity<ChatViewModel>
 
     private MvxRecyclerView MessagesRecyclerView => FindViewById<MvxRecyclerView>(ResourceConstant.Id.messages);
 
+    protected override void OnCreate(Bundle? savedInstanceState)
+    {
+        base.OnCreate(savedInstanceState);
+        Toolbar.SetNavigationButton(ResourceConstant.Drawable.arrow_back_24, Finish);
+
+        var layoutManager = new LinearLayoutManager(this);
+        layoutManager.ReverseLayout = true;
+        MessagesRecyclerView.SetLayoutManager(layoutManager);
+    }
+
     protected override void OnViewModelSet()
     {
         base.OnViewModelSet();
@@ -23,7 +35,7 @@ public class ChatActivity : AppActivity<ChatViewModel>
         {
             MessagesRecyclerView.GetLayoutManager()?.StartSmoothScroll(new SmoothScroller(this)
             {
-                TargetPosition = ViewModel.Messages.Count - 1
+                TargetPosition = 0
             });
         };
     }
@@ -31,6 +43,5 @@ public class ChatActivity : AppActivity<ChatViewModel>
     protected override void SetupToolbar(Toolbar toolbar)
     {
         toolbar.Title = ViewModel?.Chat.Name;
-        toolbar.SetNavigationButton(ResourceConstant.Drawable.arrow_back_24, Finish);
     }
 }

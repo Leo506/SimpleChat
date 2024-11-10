@@ -11,7 +11,7 @@ namespace SimpleChat.Android.UI;
 [MvxActivityPresentation]
 public abstract class AppActivity<TViewModel> : MvxActivity<TViewModel> where TViewModel : class, IMvxViewModel
 {
-    private Toolbar Toolbar => FindViewById<Toolbar>(ResourceConstant.Id.toolbar);
+    protected Toolbar Toolbar => FindViewById<Toolbar>(ResourceConstant.Id.toolbar);
 
     protected abstract int LayoutId { get; }
 

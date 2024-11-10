@@ -33,7 +33,7 @@ public class MessagesService(IPreferences preferences) : IMessagesService
 
     public Task<List<Message>> GetAll(Guid chatId)
     {
-        var messages = GetAll().Where(x => x.ChatId == chatId).OrderBy(x => x.SendTime).ToList();
+        var messages = GetAll().Where(x => x.ChatId == chatId).OrderByDescending(x => x.SendTime).ToList();
         return Task.FromResult(messages);
     }
 
@@ -46,7 +46,7 @@ public class MessagesService(IPreferences preferences) : IMessagesService
     public async Task<List<Message>> GetNewMessages(Guid chatId, List<Guid> knownMessages)
     {
         var messages = await GetAll(chatId).ConfigureAwait(false);
-        return messages.Where(x => knownMessages.Contains(x.Id) is false).ToList();
+        return messages.Where(x => knownMessages.Contains(x.Id) is false).OrderByDescending(x => x.SendTime).ToList();
     }
 
     private List<Message> GetAll() => preferences.Get<List<Message>>(MessagesKey) ?? [];

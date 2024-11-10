@@ -24,8 +24,12 @@ public class ChatsViewModel(
     }
 
     public IMvxCommand<ObservableChat> ChatClickCommand => _chatClickCommand ??= new MvxAsyncCommand<ObservableChat>(OpenChat);
-
-    public override Task Initialize() => Task.Run(LoadChats);
+    
+    public override async void ViewAppeared()
+    {
+        base.ViewAppeared();
+        await LoadChats().ConfigureAwait(false);
+    }
 
     private async Task LoadChats()
     {
@@ -58,5 +62,6 @@ public class ChatsViewModel(
     {
         var newChat = await chatsService.CreateNew(chatName).ConfigureAwait(false);
         Chats.Add(new ObservableChat(newChat, default));
+        await navigationService.Navigate<ChatViewModel, ChatModel>(newChat).ConfigureAwait(false);
     }
 }

@@ -3,6 +3,7 @@ using MvvmCross.IoC;
 using MvvmCross.Platforms.Android.Core;
 using SimpleChat.Android.UI;
 using SimpleChat.Android.UI.Pages.ChatPage;
+using SimpleChat.Android.UI.Pages.Chats;
 using SimpleChat.Core;
 using SimpleChat.Core.ViewModels.Chat;
 using SimpleChat.Core.ViewModels.Chats;
