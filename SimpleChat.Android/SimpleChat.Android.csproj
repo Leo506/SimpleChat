@@ -17,6 +17,7 @@
       <PackageReference Include="Xamarin.Google.Android.Material" Version="1.10.0.4" />
     </ItemGroup>
     <ItemGroup>
+      <ProjectReference Include="..\SimpleChat.Core\SimpleChat.Core.csproj" />
       <ProjectReference Include="..\SimpleChat.Core\SimpleChat.Core\SimpleChat.Core.csproj" />
     </ItemGroup>
 </Project>
