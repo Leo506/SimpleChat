@@ -13,7 +13,7 @@ public class App : MvxApplication
         RegisterCustomAppStart<AppStart>();
         
         IoCProvider?.RegisterType<IChatsService, ChatsService>();
-        IoCProvider?.RegisterType<IMessagesService, MessagesService>();
+        IoCProvider?.RegisterType<IMessagesService, LocalMessagesService>();
         IoCProvider?.RegisterType(() => Preferences.Default);
     }
 }

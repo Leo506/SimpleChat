@@ -60,7 +60,7 @@ public class ChatsViewModel(
 
     public async Task CreateChat(string chatName)
     {
-        var newChat = await chatsService.CreateNew(chatName).ConfigureAwait(false);
+        var newChat = await chatsService.CreateNew(chatName.Trim()).ConfigureAwait(false);
         Chats.Add(new ObservableChat(newChat, default));
         await navigationService.Navigate<ChatViewModel, ChatModel>(newChat).ConfigureAwait(false);
     }

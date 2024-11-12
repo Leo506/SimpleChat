@@ -25,7 +25,7 @@ public class ChatViewModel(IMessagesService messagesService) : MvxViewModel<Doma
         get => _currentMessage;
         set
         {
-            SetProperty(ref _currentMessage, value);
+            SetProperty(ref _currentMessage, value.Trim());
             RaisePropertyChanged(nameof(SendButtonVisible));
         }
     }

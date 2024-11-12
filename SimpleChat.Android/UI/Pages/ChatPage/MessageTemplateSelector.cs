@@ -19,7 +19,7 @@ public class MessageTemplateSelector : IMvxTemplateSelector
     {
         return fromViewType == 0
             ? ResourceConstant.Layout.view_your_message
-            : ResourceConstant.Layout.view_message;
+            : ResourceConstant.Layout.view_bot_message;
     }
 
     public int ItemTemplateId { get; set; }

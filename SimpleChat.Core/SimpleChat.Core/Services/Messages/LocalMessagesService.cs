@@ -5,7 +5,7 @@ using SimpleChat.Core.Resources;
 
 namespace SimpleChat.Core.Services.Messages;
 
-public class MessagesService(IPreferences preferences) : IMessagesService
+public class LocalMessagesService(IPreferences preferences) : IMessagesService
 {
     private const string MessagesKey = "Messages";
     
