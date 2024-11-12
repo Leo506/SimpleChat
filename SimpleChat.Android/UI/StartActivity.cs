@@ -3,11 +3,5 @@ using MvvmCross.Platforms.Android.Views;
 
 namespace SimpleChat.Android.UI;
 
-[Activity(Label = "@string/app_name", MainLauncher = true, Theme = "@style/AppTheme", NoHistory = true, ScreenOrientation = ScreenOrientation.Portrait)]
-public class StartActivity : MvxStartActivity
-{
-    protected override void OnCreate(Bundle savedInstanceState)
-    {
-        base.OnCreate(savedInstanceState);
-    }
-}
+[Activity(Label = "@string/app_name", MainLauncher = true, NoHistory = true, ScreenOrientation = ScreenOrientation.Portrait)]
+public class StartActivity : MvxStartActivity;
